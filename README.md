@@ -13,12 +13,12 @@
 1. 克隆本仓库并进入：
 
 ```bash
-git clone
+git clone https://github.com/barkure/Auto-Backup-Server.git
 
 cd Auto-Backup-Server
 ```
 
-我克隆到了 `\root\scripts` 目录下，因此后面有些路径请修改为你自己的。
+    我克隆到了 `\root\scripts` 目录下，因此后面有些路径请修改为你自己的。
 
 2. 修改 `config.py` 为自己的参数，下面的是我的例子：
 
@@ -37,7 +37,7 @@ repo = "barkure/Server-Backup"
 # 文件大小限制（例如 100MB）
 FILE_SIZE_LIMIT = 100 * 1024 * 1024
 
-# 保留的备份次数
+# 保留的备份次数，超过此次数则删除最旧的备份
 MAX_BACKUPS = 30
 ```
 
@@ -46,7 +46,7 @@ MAX_BACKUPS = 30
 ```python
 python3 backup.py
 ```
-运行结束后去 GitHub 对应仓库看一下有没有新的提交，可以的话进行下一步。
+    运行结束后去 GitHub 对应仓库看一下有没有新的提交，可以的话进行下一步。
 
 4. 设置定时任务：
 
@@ -54,14 +54,15 @@ python3 backup.py
 crontab -e
 ```
 
-加入：
+    加入下面的内容并保存：
 
 ```bash
 0 5 * * * /usr/bin/python3 /root/scripts/Auto-Backup-Server/backup.py
 ```
 
-注意，你可能需要了解 **crontab** 的使用方法，上面的意思是每天早上 5 点整会运行一次备份脚本。
+    注意，你可能需要了解 **crontab** 的使用方法，上面的意思是每天早上 5 点整会运行一次备份脚本。
 
 ## 截图示例
-![](./screenshots/1.png)
-![](./screenshots/2.png)
+|截图1|截图2|
+|:---:|:---:|
+|![](./screenshots/1.png)|![](./screenshots/2.png)|
