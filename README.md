@@ -10,7 +10,7 @@
     - 使用已有仓库（备份前会拉取一遍的）
 
 ### 设置自动备份
-#### （1）克隆本仓库并进入：
+#### 1. 克隆本仓库并进入：
 
 ```bash
 git clone https://github.com/barkure/Auto-Backup-Server.git
