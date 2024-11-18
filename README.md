@@ -10,7 +10,7 @@
     - 使用已有仓库（备份前会拉取一遍的）
 
 ### 设置自动备份
-#### 1.克隆本仓库并进入：
+#### （1）克隆本仓库并进入：
 
 ```bash
 git clone https://github.com/barkure/Auto-Backup-Server.git
@@ -20,7 +20,7 @@ cd Auto-Backup-Server
 
 我克隆到了 `\root\scripts` 目录下，因此后面有些路径请修改为你自己的。
 
-#### 2.修改 `config.py` 为自己的参数，下面的是我的例子：
+#### 2. 修改 `config.py` 为自己的参数，下面的是我的例子：
 
 ```python
 # 需要备份的目录（文件）
@@ -41,14 +41,14 @@ FILE_SIZE_LIMIT = 100 * 1024 * 1024
 MAX_BACKUPS = 30
 ```
 
-#### 3.测试一下：
+#### 3. 测试一下：
 
 ```python
 python3 backup.py
 ```
 运行结束后去 GitHub 对应仓库看一下有没有新的提交，可以的话进行下一步。
 
-#### 4.设置定时任务：
+#### 4. 设置定时任务：
 
 ```bash
 crontab -e
