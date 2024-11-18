@@ -62,6 +62,21 @@ crontab -e
 
 注意，你可能需要了解 **crontab** 的使用方法，上面的意思是每天早上 5 点整会运行一次备份脚本。
 
+### 关于文件分割
+GitHub 阻止大小超过 100 MiB 的文件，详见[关于 GitHub 上的大文件](https://docs.github.com/zh/repositories/working-with-files/managing-large-files/about-large-files-on-github)
+
+对于打包压缩后体积大于 100 MiB 的文件，会进行分割，得到类似于下面的文件：
+- xxxx.tar.gz.part_aa
+- xxxx.tar.gz.part_ab
+- xxxx.tar.gz.part_ac
+- ...
+
+使用 `cat` 命令恢复：
+
+```bash
+cat xxxx.tar.gz.part_* > xxxx.tar.gz
+```
+
 ## 截图示例
 |多次备份|大文件分割|
 |:---:|:---:|
